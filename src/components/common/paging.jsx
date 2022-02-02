@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import _ from "lodash";
+import PropTypes from "prop-types";
 
 const Paging = (props) => {
   const { itemsCount, pageSize, currentPage, onPageChange } = props;
@@ -25,6 +26,13 @@ const Paging = (props) => {
       </ul>
     </nav>
   );
+};
+
+Paging.protoTypes = {
+  itemsCount: PropTypes.number.isRequired,
+  pageSize: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired,
 };
 
 export default Paging;
