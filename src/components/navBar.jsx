@@ -6,7 +6,7 @@ const NavBar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          Vidly
+          Cinema
         </Link>
         <button
           className="navbar-toggler"
@@ -29,6 +29,9 @@ const NavBar = () => {
             </NavLink>
             <NavLink className="nav-item nav-link" to="/rentals">
               Rentals
+            </NavLink>
+            <NavLink className="nav-item nav-link" to="/login">
+              Login
             </NavLink>
           </div>
         </div>
