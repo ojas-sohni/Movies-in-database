@@ -1,17 +1,11 @@
 import React from "react";
 
-const Input = ({ name, label, value, error, onChange }) => {
+//...rest opertator will help us getting code easy, If we add new parameters we don not have to come back here and add them.
+const Input = ({ name, label, error, ...rest }) => {
   return (
     <div className="form-froup">
       <label htmlFor={name}>{label}</label>
-      <input
-        value={value}
-        onChange={onChange}
-        name={name}
-        id={name}
-        type="text"
-        className="form-control"
-      />
+      <input {...rest} name={name} id={name} className="form-control" />
       {error && <div className="alert alert-danger">{error}</div>}
     </div>
   );
