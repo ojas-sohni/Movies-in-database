@@ -8,7 +8,7 @@ axios.interceptors.response.use(null, (error) => {
     error.ersponse.status < 500;
   if (!expectedError) {
     console.log("Logging in the error", error);
-    toast("An unexpected error occurred.");
+    toast.error("An unexpected error occurred.");
   }
   return Promise.reject(error);
 });
