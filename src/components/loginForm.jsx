@@ -1,7 +1,7 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import { login } from "./../services/authService";
+import auth from "./../services/authService";
 
 class LoginForm extends Form {
   state = {
@@ -17,9 +17,9 @@ class LoginForm extends Form {
   doSubmit = async () => {
     try {
       const { data } = this.state;
-      const { data: jwt } = await login(data.username, data.password);
+      await auth.login(data.username, data.password);
       //we need JWT to be stored in browser's localstorage.
-      localStorage.setItem("token", jwt);
+      // localStorage.setItem("token", jwt); (moved to auth service as part of refactoring)
       //now redirect the user.
       window.location = "/";
       //This will reload the application.
