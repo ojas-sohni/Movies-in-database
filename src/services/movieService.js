@@ -20,7 +20,7 @@ export function saveMovie(movie) {
   if (movie._id) {
     const body = { ...movie };
     delete body._id;
-    return http.put(movieUrl(movie._Id), body);
+    return http.put(movieUrl(movie._id), body);
   }
   //new movie. Filling the form
   return http.post(apiEndpoint, movie);

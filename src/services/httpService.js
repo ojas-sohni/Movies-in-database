@@ -1,5 +1,10 @@
 import axios from "axios";
+import auth from "./authService";
 import { toast } from "react-toastify";
+
+axios.defaults.headers.common["x-auth-token"] = auth.getJwt();
+//By this we are telling axios, whenever you are making any http request, include this header in the request.
+//otherwise we will be getting a 401 error fo unauthorization while editing movie form.
 
 axios.interceptors.response.use(null, (error) => {
   const expectedError =
