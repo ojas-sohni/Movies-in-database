@@ -21,7 +21,8 @@ class LoginForm extends Form {
       //we need JWT to be stored in browser's localstorage.
       localStorage.setItem("token", jwt);
       //now redirect the user.
-      this.props.history.push("/");
+      window.location = "/";
+      //This will reload the application.
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
