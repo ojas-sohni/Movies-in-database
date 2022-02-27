@@ -9,7 +9,15 @@ const ProtectedRoute = ({ path, component: Component, render, ...rest }) => {
       //path={path} replaced with {...rest}. It will give all the req props.
       {...rest}
       render={(props) => {
-        if (!auth.getCurrentUser()) return <Redirect to="/login" />;
+        if (!auth.getCurrentUser())
+          return (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: props.location },
+              }}
+            />
+          );
         return Component ? <Component {...props} /> : render(props);
       }}
     ></Route>
